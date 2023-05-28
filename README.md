@@ -1,7 +1,7 @@
-# SpringbootÊµÏÖÇ°ºó¶Ë´óÊı¾İ½»»¥
+# Springbootå®ç°å‰åç«¯å¤§æ•°æ®äº¤äº’
 
-## ¼¼ÊõÕ»
-- Springboot 3.0.6£¨java17+£©
+## æŠ€æœ¯æ ˆ
+- Springboot 3.0.6ï¼ˆjava17+ï¼‰
 - ajax
 - mysql
 - mybatis
@@ -11,43 +11,43 @@
 - flume
 
 
-## ÏîÄ¿ÊÂÎñ
-- [x] uploadÉÏ´«ÎÄ¼ş£¬²¢ÉÏ´«¸øhdfs
-- [x] ÓÃ»§µÇÂ¼×¢²á½Ó¿Ú
-- [x] hive·ÖÎö×îÖÕÊı¾İ
-- [x] sqoop½«hive±íÖĞÊı¾İ×ª»»Îªmysql,²¢ÏÔÊ¾³öÀ´
-- [ ] flumeÊµÊ±²É¼¯Êı¾İ
+## é¡¹ç›®äº‹åŠ¡
+- [x] uploadä¸Šä¼ æ–‡ä»¶ï¼Œå¹¶ä¸Šä¼ ç»™hdfs
+- [x] ç”¨æˆ·ç™»å½•æ³¨å†Œæ¥å£
+- [x] hiveåˆ†ææœ€ç»ˆæ•°æ®
+- [x] sqoopå°†hiveè¡¨ä¸­æ•°æ®è½¬æ¢ä¸ºmysql,å¹¶æ˜¾ç¤ºå‡ºæ¥
+- [x] flumeå®æ—¶é‡‡é›†æ•°æ®
 
 
-## ÏîÄ¿½á¹¹
+## é¡¹ç›®ç»“æ„
 ```
-©À©¤.idea
-©¦  ©¸©¤inspectionProfiles
-©À©¤.mvn
-©¦  ©¸©¤wrapper
-©¸©¤src
-   ©¸©¤main
-      ©À©¤java
-      ©¦  ©¸©¤com
-      ©¦      ©¸©¤example
-      ©¦          ©¸©¤demo
-      ©¦              ©À©¤config
-      ©¦              ©À©¤controller
-      ©¦              ©À©¤pojo
-      ©¦              ©À©¤mapper
-      ©¦              ©¸©¤service
-      ©¸©¤resources
-          ©¸©¤static
-              ©À©¤css
-              ©À©¤images
-              ©¸©¤js
+â”œâ”€.idea
+â”‚  â””â”€inspectionProfiles
+â”œâ”€.mvn
+â”‚  â””â”€wrapper
+â””â”€src
+   â””â”€main
+      â”œâ”€java
+      â”‚  â””â”€com
+      â”‚      â””â”€example
+      â”‚          â””â”€demo
+      â”‚              â”œâ”€config
+      â”‚              â”œâ”€controller
+      â”‚              â”œâ”€pojo
+      â”‚              â”œâ”€mapper
+      â”‚              â””â”€service
+      â””â”€resources
+          â””â”€static
+              â”œâ”€css
+              â”œâ”€images
+              â””â”€js
 ```
 
 
 
 ## HQL
 
-- ¸÷¸öÊ±ÆÚÓÎ¿ÍÊıÁ¿
+- å„ä¸ªæ—¶æœŸæ¸¸å®¢æ•°é‡
 
   ```
   INSERT OVERWRITE DIRECTORY '/project/anaylse'
@@ -57,7 +57,7 @@
   GROUP BY `Year_Month`;
   ```
 
-- Í¨¹ıdateÀ´·ÖÎö¸÷¸öÊ±ÆÚµÄratingµÄÆ½¾ùÖµ
+- é€šè¿‡dateæ¥åˆ†æå„ä¸ªæ—¶æœŸçš„ratingçš„å¹³å‡å€¼
 
   ```
   SELECT date, AVG(CAST(rating AS FLOAT)) AS avg_rating
@@ -65,7 +65,7 @@
   GROUP BY Year_Month;
   ```
 
-- Reviewer_Location¶¼À´×ÔÄÄ¸öµØÇø
+- Reviewer_Locationéƒ½æ¥è‡ªå“ªä¸ªåœ°åŒº
 
   ```
   INSERT OVERWRITE DIRECTORY '/project/output/disney'
@@ -74,7 +74,7 @@
   GROUP BY Reviewer_Location;
   ```
 
-- »ñÈ¡ÆÀ·Ö×î¸ßµÄÈı¸ö¹«Ô°
+- è·å–è¯„åˆ†æœ€é«˜çš„ä¸‰ä¸ªå…¬å›­
 
   ```
   SELECT Branch, AVG(CAST(rating AS FLOAT)) AS avg_rating
@@ -83,5 +83,6 @@
   ORDER BY avg_rating DESC
   LIMIT 3;
   ```
+## æµç¨‹å›¾
+  ![image](https://github.com/huaiyuechusan/sqoop_flume_project_backend/assets/97608741/359ada4f-ece3-448d-8847-951e4ea073a8)
 
-  
