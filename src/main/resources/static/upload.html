@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UploadTest</title>
+    <script src="./js/jquery.min.js"></script>
+</head>
+<body>
+    <div id="fileUrl"></div>
+    <input type="file" id="file">
+    <input type="button" value="提交" onclick="uploadFile()">
+    <button id="delete">delete</button>
+<script>
+    function uploadFile() {
+        var file=$("#file")[0].files[0];
+        var formData = new FormData();
+        formData.append("file",file);
+        formData.append("username", "abc");
+        console.log(formData);
+        $.ajax({
+            type:"post",
+            url:"http://192.168.198.133:8081/upload",
+            processData: false,
+            contentType:false,
+            data:formData,
+            success:function (msg) {
+                $("#fileUrl").html(msg);
+            }
+        })
+    }
+
+
+</script>
+</body>
+</html>

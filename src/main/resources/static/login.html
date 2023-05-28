@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Login</title>
+</head>
+<body>
+  <h1>User Login</h1>
+
+  <form id="loginForm">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+      <button type="submit">Login</button>
+    </div>
+  </form>
+  <script src="./js/axios.js"></script>
+  <script>
+    // 使用JavaScript处理登录表单的提交事件
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // 阻止表单默认的提交行为
+
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+    
+      // axios.defaults.baseURL = 'http://192.168.198.133:8080';
+      axios.defaults.baseURL = 'http://localhost:8080';
+      // 发送POST请求到后端注册接口
+
+      axios({
+        // 请求地址
+        url: '/login',
+        // 请求类型
+        method: 'post',
+        // 参数
+        params: {
+            username: username,
+            password: password
+        },
+        // 接收数据类型
+        responseType: 'json'
+    }).then(response =>{
+        console.log(response);
+    }).then(response => {
+        // 登录成功，跳转到首页
+        window.location.href = "./index.html";
+    }).catch(error => {
+        // 登录失败，弹出提示框
+        alert(error);
+    })
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+hdfs:
+  url: 'hdfs://hadoop:9000'
+  username: 'root'
+  location: '/project/demo'
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 50MB
+
+hive:
+    url: "jdbc:hive2://hadoop:10000/default"
+    user: "root"
+    password: "niit1234"
+    driver: "org.apache.hive.jdbc.HiveDriver"
+    sql : 
+     - "select * from default.disneyland"
+
+shell:
+    host: "192.168.178.34"
+    port: 22
+    username: "root"
+    password: "niit1234"
+    command: 
+     - "bash /root/BD4project/sqoopExport1.sh root niit1234 bd4project anaylse1 192.168.178.34 /project/anaylse/admin/anaylse1/*"
+     - "bash /root/BD4project/sqoopExport2.sh root niit1234 bd4project anaylse2 192.168.178.34 /project/anaylse/admin/anaylse2/*"
+     - "bash /root/BD4project/sqoopExport3.sh root niit1234 bd4project anaylse3 192.168.178.34 /project/anaylse/admin/anaylse3/*"
+     - "bash /root/BD4project/sqoopExport4.sh root niit1234 bd4project anaylse4 192.168.178.34 /project/anaylse/admin/anaylse4/*"
+     - "flume-ng agent --conf /training/flume/conf/ --conf-file /root/BD4project/flumedisney.conf --name project -Dflume.root.logger=INFO,console"

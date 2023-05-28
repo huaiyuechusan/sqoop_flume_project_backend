@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>User Registration</title>
+  <script src="./js/axios.js"></script>
+</head>
+<body>
+  <h1>User Registration</h1>
+
+  <form id="registrationForm">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+    </div>
+    <div>
+      <button type="submit">Register</button>
+    </div>
+  </form>
+
+  <script>
+    // 使用JavaScript处理注册表单的提交事件
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // 阻止表单默认的提交行为
+
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("Password and Confirm Password do not match");
+        return;
+      }
+    
+      // axios.defaults.baseURL = 'http://192.168.198.133:8080';
+      axios.defaults.baseURL = 'http://localhost:8080';
+      // 发送POST请求到后端注册接口
+      axios({
+        // 请求地址
+        url: '/register',
+        // 请求类型
+        method: 'post',
+        // 参数
+        params: {
+            username: username,
+            password: password
+        },
+        // 接收数据类型
+        responseType: 'json'
+    }).then(response =>{
+        var message = response.data;
+        alert(message);
+    }).catch(error => {
+        // 注册失败，弹出提示框
+        alert(error);
+    })
+    })
+  </script>
+</body>
+</html>

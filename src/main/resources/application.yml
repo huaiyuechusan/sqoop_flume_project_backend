@@ -1,0 +1,28 @@
+hdfs:
+  url: 'hdfs://192.168.198.133:9000'
+  username: 'root'
+  location: '/project/demo'
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 50MB
+
+hive:
+    url: "jdbc:hive2://192.168.198.133:10000/niit"
+    user: "root"
+    password: "Singh32!"
+    driver: "org.apache.hive.jdbc.HiveDriver"
+    sql:
+     - "select * from disneydata"
+
+shell:
+    host: "192.168.198.133"
+    port: 22
+    username: "root"
+    password: "niit1234"
+    command:
+     - "ls -a"
+     - "rm -rf "
+     - "hdfs dfs -rm -rf "
